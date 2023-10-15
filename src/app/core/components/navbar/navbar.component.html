@@ -1,0 +1,29 @@
+<nav>
+  <div class="container">
+    <div class="logo">
+      <img src="../../../../assets/logos/logo-no-background.png" alt="LOGO" />
+      <h1>Buy or Rent</h1>
+    </div>
+    <ul>
+      <li>
+        <i class="fa-solid fa-globe"></i>
+        <select>
+          <option value="pt-BR">Português</option>
+          <option value="en">English</option>
+        </select>
+      </li>
+      <li>Contato</li>
+      <li>Sobre</li>
+      <li>
+        <div class="alter-themes">
+          <button class="alter-theme" [ngClass]="{'alter-theme-sun': theme === options.Light}" (click)="toggleTheme(options.Light)">
+            <i class="fa-solid fa-sun"></i>
+          </button>
+          <button class="alter-theme" [ngClass]="{'alter-theme-moon': theme === options.Dark}" (click)="toggleTheme(options.Dark)">
+            <i class="fa-solid fa-moon"></i>
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

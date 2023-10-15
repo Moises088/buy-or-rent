@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { SiteRoutingModule } from './site-routing.module';
 import { SiteComponent } from './site.component';
 import { HomeComponent } from './pages/home/home.component';
+import { CoreModule } from 'src/app/core/core.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { HomeComponent } from './pages/home/home.component';
   ],
   imports: [
     CommonModule,
-    SiteRoutingModule
+    SiteRoutingModule,
+    CoreModule
   ]
 })
 export class SiteModule { }
