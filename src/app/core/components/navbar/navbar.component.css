@@ -17,12 +17,12 @@ nav .container {
 nav .container .logo h1 {
     margin-left: 20px;
     font-weight: 500;
-    font-size: 30px;
+    font-size: 28px;
     color: #37474F;
 }
 
 nav .container img {
-    height: 60px;
+    height: 55px;
 }
 
 nav .container ul {
@@ -51,10 +51,10 @@ nav .container ul li select {
     appearance: none;
     padding: 5px;
     outline-color: #FFF;
-    min-width: 90px;
     margin-right: -10px;
     margin-left: 2px;
     cursor: pointer;
+    width: auto;
 }
 
 .alter-themes {
