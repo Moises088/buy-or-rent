@@ -6,7 +6,12 @@ export const LANGUAGUES = {
             title: 'Buy or Rent'
         },
         main: {
-            title: "What do you want to calculate?"
+            title: "What do you want to calculate?",
+            options: {
+                immobile: 'Immobile',
+                vehicle: 'Vehicle',
+                smartphone: 'Smartphone'
+            }
         }
     },
     'pt-BR': {
@@ -16,7 +21,12 @@ export const LANGUAGUES = {
             title: 'Compre ou alugue'
         },
         main: {
-            title: "O que deseja calcular?"
+            title: "O que deseja calcular?",
+            options: {
+                immobile: 'Imóvel',
+                vehicle: 'Veículo',
+                smartphone: 'Smartphone'
+            }
         }
     }
 }

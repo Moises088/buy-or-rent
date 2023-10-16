@@ -10,7 +10,7 @@
     </div>
 
     <button [ngClass]="{ 'btn-linear': type === 'house' }" class="btn">
-      Imóvel
+      {{ translations?.main?.options?.immobile }}
     </button>
   </div>
 
@@ -25,7 +25,7 @@
     </div>
 
     <button [ngClass]="{ 'btn-linear': type === 'transportation' }" class="btn">
-      Veículo
+      {{ translations?.main?.options?.vehicle }}
     </button>
   </div>
 
@@ -43,7 +43,7 @@
     </div>
 
     <button [ngClass]="{ 'btn-linear': type === 'smartphone' }" class="btn">
-      Smartphone
+      {{ translations?.main?.options?.smartphone }}
     </button>
   </div>
 </div>

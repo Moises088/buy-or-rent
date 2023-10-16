@@ -8,8 +8,8 @@ import { TranslationService } from 'src/app/shared/services/translation.service'
 })
 export class HomeComponent implements OnInit {
 
-  public translations: any;
   public type: string = '';
+  public translations: any;
 
   constructor(
     private readonly translationService: TranslationService
