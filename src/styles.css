@@ -22,7 +22,18 @@ body {
     margin-right: auto;
 }
 
-.btn-linear {
+.btn-blue-linear {
     background-image: linear-gradient(117deg, #03a9f4, #0288d1) !important;
     color: #FFF !important;
+}
+
+.btn-gray-linear {
+    background-image: var(--btn-gray-linear);
+    font-weight: 500;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    letter-spacing: 0.9px;
+    color: #37474f;
+    color: var(--text-primary);
 }
