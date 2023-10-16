@@ -19,7 +19,7 @@
             <button
                 class="alter-theme" 
                 [ngClass]="{'alter-theme-sun': theme === options.Light}" 
-                (click)="toggleTheme(options.Light)"
+                (click)="toggleTheme()"
             >
                 <i class="fa-solid fa-sun"></i>
             </button>
@@ -27,7 +27,7 @@
             <button 
                 class="alter-theme" 
                 [ngClass]="{'alter-theme-moon': theme === options.Dark}" 
-                (click)="toggleTheme(options.Dark)"
+                (click)="toggleTheme()"
             >
                 <i class="fa-solid fa-moon"></i>
             </button>

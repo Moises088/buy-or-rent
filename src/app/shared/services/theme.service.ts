@@ -10,13 +10,15 @@ export class ThemeService {
   private readonly dark = {
     background: "#0D1117",
     text: "#FFF",
-    textSecondary: "#ababab",
+    textSecondary: "#c2c2c2",
+    textMuted: "#ebebeb"
   }
-
+  
   private readonly light = {
     background: "#FFF",
     text: "#000",
     textSecondary: "#37474F",
+    textMuted: "#0D2317"
   }
 
   constructor() { }
@@ -29,11 +31,13 @@ export class ThemeService {
     if (theme == ThemeOptions.Dark) {
       document.documentElement.style.setProperty('--background-primary', this.dark.background);
       document.documentElement.style.setProperty('--text-primary', this.dark.text);
-      document.documentElement.style.setProperty('--text-secondary-primary', this.dark.textSecondary);
+      document.documentElement.style.setProperty('--text-secondary', this.dark.textSecondary);
+      document.documentElement.style.setProperty('--text-muted', this.dark.textMuted);
     } else {
       document.documentElement.style.setProperty('--background-primary', this.light.background);
       document.documentElement.style.setProperty('--text-primary', this.light.text);
-      document.documentElement.style.setProperty('--text-secondary-primary', this.light.textSecondary);
+      document.documentElement.style.setProperty('--text-secondary', this.light.textSecondary);
+      document.documentElement.style.setProperty('--text-muted', this.light.textMuted);
     }
   }
 

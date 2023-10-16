@@ -18,7 +18,7 @@ nav .container .logo h1 {
     margin-left: 20px;
     font-weight: 500;
     font-size: 28px;
-    color: var(--text-secondary-primary);
+    color: var(--text-secondary);
 }
 
 nav .container img {
@@ -41,7 +41,7 @@ nav .container ul li {
 }
 
 nav .container ul li i {
-    color: var(--text-secondary-primary);
+    color: var(--text-secondary);
 }
 
 nav .container ul li select {

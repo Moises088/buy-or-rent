@@ -29,7 +29,8 @@ export class NavbarComponent implements OnInit {
     this.loadLanguage()
   }
 
-  toggleTheme(theme: ThemeOptions) {
+  toggleTheme() {
+    const theme = this.theme != this.options.Light ? this.options.Light : this.options.Dark;
     this.theme = theme;
     this.themeService.setTheme(this.theme)
   }

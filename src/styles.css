@@ -21,3 +21,8 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
+
+.btn-linear {
+    background-image: linear-gradient(117deg, #03a9f4, #0288d1) !important;
+    color: #FFF !important;
+}
