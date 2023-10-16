@@ -18,7 +18,7 @@ nav .container .logo h1 {
     margin-left: 20px;
     font-weight: 500;
     font-size: 28px;
-    color: #37474F;
+    color: var(--text-secondary-primary);
 }
 
 nav .container img {
@@ -37,10 +37,11 @@ nav .container ul li {
     cursor: pointer;
     font-weight: 400;
     font-size: 16px;
+    color: var(--text-primary);
 }
 
 nav .container ul li i {
-    color: #37474F;
+    color: var(--text-secondary-primary);
 }
 
 nav .container ul li select {
@@ -50,11 +51,13 @@ nav .container ul li select {
     -moz-appearance: none;
     appearance: none;
     padding: 5px;
-    outline-color: #FFF;
+    outline-color: var(--background-primary);
     margin-right: -10px;
     margin-left: 2px;
     cursor: pointer;
     width: auto;
+    background-color: var(--background-primary);
+    color: var(--text-primary);
 }
 
 .alter-themes {
@@ -62,13 +65,12 @@ nav .container ul li select {
     align-items: center;
     width: 70px;
     border-radius: 10px;
-    border: 1px solid #ebebeb;
     overflow: hidden;
 }
 
 .alter-theme {
     padding-inline: 5px;
-    padding-block: 2px;
+    padding-block: 4px;
     width: 35px;
     border: none;
     background: none;

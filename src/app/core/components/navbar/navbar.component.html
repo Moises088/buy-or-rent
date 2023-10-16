@@ -7,7 +7,7 @@
     <ul>
       <li>
         <i class="fa-solid fa-globe"></i>
-        <select (change)="toggleLanguage($event)" [(ngModel)]="currentLanguage">
+        <select (change)="toggleLanguage($event.target)" [(ngModel)]="currentLanguage">
           <option value="pt-BR">Português</option>
           <option value="en">English</option>
         </select>

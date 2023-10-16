@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ThemeService } from './shared/services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'buy-or-rent';
+
+  constructor(
+    private readonly themeService: ThemeService
+  ) { }
+
+  ngOnInit() {
+    this.themeService.load()
+  }
 }
