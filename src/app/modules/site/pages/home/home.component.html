@@ -6,5 +6,14 @@
       [type]="type"
       (selectType)="selectType($event)"
     ></app-calculate-types>
+
+    <div
+      class="container-calculate"
+      [ngClass]="{ 'container-calculate-active': type !== '' }"
+    >
+      <app-calculate-immobile *ngIf="type == 'house'"></app-calculate-immobile>
+      <app-calculate-smartphone *ngIf="type == 'smartphone'"></app-calculate-smartphone>
+      <app-calculate-vehicle *ngIf="type == 'transportation'"></app-calculate-vehicle>
+    </div>
   </div>
 </section>
