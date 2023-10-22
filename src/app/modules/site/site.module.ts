@@ -9,7 +9,7 @@ import { CalculateTypesComponent } from './components/calculate-types/calculate-
 import { CalculateImmobileComponent } from './components/calculate-immobile/calculate-immobile.component';
 import { CalculateVehicleComponent } from './components/calculate-vehicle/calculate-vehicle.component';
 import { CalculateSmartphoneComponent } from './components/calculate-smartphone/calculate-smartphone.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxCurrencyDirective } from "ngx-currency";
 import { CalculateFormCardComponent } from './components/calculate-form-card/calculate-form-card.component';
 
@@ -29,6 +29,7 @@ import { CalculateFormCardComponent } from './components/calculate-form-card/cal
     SiteRoutingModule,
     CoreModule,
     FormsModule,
+    ReactiveFormsModule,
     NgxCurrencyDirective
   ]
 })

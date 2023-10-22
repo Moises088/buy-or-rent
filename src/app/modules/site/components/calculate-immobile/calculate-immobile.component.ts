@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BrazilStates } from 'src/app/shared/constants/states.constant';
+import { BrazilStates, EUAStates } from 'src/app/shared/constants/states.constant';
 import { CalculateFormCardDto } from 'src/app/shared/interfaces/calculate.interface';
 import { TranslationService } from 'src/app/shared/services/translation.service';
 
@@ -11,7 +11,7 @@ import { TranslationService } from 'src/app/shared/services/translation.service'
 export class CalculateImmobileComponent implements OnInit {
   public translations: any;
 
-  public form: Record<string, string> = {}
+  public form: Record<string, string> = { country: 'brazil', state: BrazilStates[0].key }
 
   public forms: { title: string, inputs: CalculateFormCardDto[] }[] = []
 
@@ -24,6 +24,44 @@ export class CalculateImmobileComponent implements OnInit {
       this.translations = this.translationService.getTranslations(language);
       this.setInputs()
     });
+  }
+
+  public valueChange(event: { key: string, value: string }) {
+    this.form[event.key] = event.value;
+
+    if (event.key == 'country') {
+      this.changeState(event.value)
+    }
+  }
+
+  private changeState(country: string) {
+    const forms: { title: string, inputs: CalculateFormCardDto[] }[] = JSON.parse(JSON.stringify(this.forms))
+    const formLocale = forms.find(f => f.inputs.find(i => i.key == "state"))
+    const form = formLocale?.inputs.find(i => i.key == 'state')
+
+
+    switch (country) {
+      case 'brazil':
+        if (form?.selectOptions) {
+          form.selectOptions = BrazilStates;
+          this.form['state'] = BrazilStates[0].key;
+        }
+        break;
+      case 'usa':
+        if (form?.selectOptions) {
+          form.selectOptions = EUAStates;
+          this.form['state'] = EUAStates[0].key;
+        }
+        break;
+      default:
+        if (form?.selectOptions) {
+          form.selectOptions = BrazilStates;
+          this.form['state'] = BrazilStates[0].key;
+        }
+        break;
+    }
+
+    this.forms = [...forms]
   }
 
   private setInputs() {

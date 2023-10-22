@@ -4,6 +4,8 @@
     [position]="i + 1"
     [title]="f.title"
     [inputs]="f.inputs"
+    (valueChange)="valueChange($event)"
+    [form]="form"
   >
   </app-calculate-form-card>
 </div>

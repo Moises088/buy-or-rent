@@ -6,5 +6,6 @@ export interface CalculateFormCardDto {
     key: string,
     prefix?: string,
     placeholder?: string,
-    checkboxList?: { key: string, title: string }[][]
+    checkboxList?: { key: string, title: string }[][],
+    value?: any
 }
