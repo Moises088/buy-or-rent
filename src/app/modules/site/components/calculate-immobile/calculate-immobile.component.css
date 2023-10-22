@@ -2,11 +2,34 @@
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
-    height: 350px;
 }
 
 app-calculate-form-card {
     width: 49%;
     height: 350px;
     margin-bottom: 20px;
+}
+
+.container-btn {
+    margin-top: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-send {
+    width: 100%;
+    max-width: 450px;
+    font-size: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    border: none;
+    padding: 12px 0;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all ease 1s;
+}
+
+.btn-send:hover{
+    transform: scale(0.97);
 }

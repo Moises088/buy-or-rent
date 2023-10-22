@@ -15,6 +15,13 @@ export class CalculateImmobileComponent implements OnInit {
 
   public forms: { title: string, inputs: CalculateFormCardDto[] }[] = []
 
+  public itbi: CalculateFormCardDto = {
+    key: 'itbi',
+    label: `Imposto sobre a transmissão de imóveis (ITBI) (compra)`,
+    type: "input-money",
+    prefix: "R$"
+  }
+
   constructor(
     private readonly translationService: TranslationService
   ) { }
@@ -37,26 +44,31 @@ export class CalculateImmobileComponent implements OnInit {
   private changeState(country: string) {
     const forms: { title: string, inputs: CalculateFormCardDto[] }[] = JSON.parse(JSON.stringify(this.forms))
     const formLocale = forms.find(f => f.inputs.find(i => i.key == "state"))
+    const formExtra = forms.find(f => f.inputs.find(i => i.key == "transferRate"))
     const form = formLocale?.inputs.find(i => i.key == 'state')
-
+    const formitbi = formExtra?.inputs.filter(i => i.key != 'itbi');
 
     switch (country) {
       case 'brazil':
         if (form?.selectOptions) {
           form.selectOptions = BrazilStates;
           this.form['state'] = BrazilStates[0].key;
+          console.log("formitbi?.length && formExtra", formitbi, formExtra)
+          if (formitbi?.length && formExtra) formExtra['inputs'] = [...formitbi, this.itbi];
         }
         break;
       case 'usa':
         if (form?.selectOptions) {
           form.selectOptions = EUAStates;
           this.form['state'] = EUAStates[0].key;
+          if (formitbi?.length && formExtra) formExtra['inputs'] = formitbi;
         }
         break;
       default:
         if (form?.selectOptions) {
           form.selectOptions = BrazilStates;
           this.form['state'] = BrazilStates[0].key;
+          if (formitbi?.length && formExtra) formExtra['inputs'] = [...formitbi, this.itbi];
         }
         break;
     }
@@ -151,12 +163,6 @@ export class CalculateImmobileComponent implements OnInit {
         title: this.translations?.main?.immobile?.extraExpenses,
         inputs: [
           {
-            key: 'itbi',
-            label: `Imposto sobre a transmissão de imóveis (ITBI) (compra)`,
-            type: "input-money",
-            prefix: "R$"
-          },
-          {
             key: 'transferRate',
             label: `${this.translations?.main?.immobile?.transferRate} (${this.translations?.main?.immobile?.purchase})`,
             type: "input-money",
@@ -168,6 +174,7 @@ export class CalculateImmobileComponent implements OnInit {
             type: "input-money",
             prefix: "R$"
           },
+          this.itbi,
         ]
       },
     ]

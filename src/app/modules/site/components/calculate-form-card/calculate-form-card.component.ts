@@ -23,7 +23,6 @@ export class CalculateFormCardComponent implements OnInit {
   };
 
   ngOnInit(): void {
-    console.log("inputs", this.inputs)
     for (const input of this.inputs) {
       if (input.type == 'input-money') {
         if (!this.form[input.key]) this.form[input.key] = "0";
