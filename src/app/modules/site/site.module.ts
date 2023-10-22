@@ -11,6 +11,7 @@ import { CalculateVehicleComponent } from './components/calculate-vehicle/calcul
 import { CalculateSmartphoneComponent } from './components/calculate-smartphone/calculate-smartphone.component';
 import { FormsModule } from '@angular/forms';
 import { NgxCurrencyDirective } from "ngx-currency";
+import { CalculateFormCardComponent } from './components/calculate-form-card/calculate-form-card.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { NgxCurrencyDirective } from "ngx-currency";
     CalculateTypesComponent,
     CalculateImmobileComponent,
     CalculateVehicleComponent,
-    CalculateSmartphoneComponent
+    CalculateSmartphoneComponent,
+    CalculateFormCardComponent
   ],
   imports: [
     CommonModule,

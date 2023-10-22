@@ -1,0 +1,53 @@
+<div class="container-input">
+  <div class="position">{{ position }}</div>
+  <h3>{{ title }}</h3>
+
+  <div *ngFor="let i of inputs">
+    <div class="form-container">
+      <label for="">{{ i.label }}</label>
+      <select *ngIf="i.type == 'select'" class="custom-select">
+        <option *ngFor="let o of i.selectOptions" value="{{ o.key }}">
+          {{ o.label }}
+        </option>
+      </select>
+    </div>
+
+    <div *ngIf="i.type == 'input-money'" class="form-inline">
+      <h3 *ngIf="i.prefix">{{ i.prefix }}</h3>
+      <input
+        currencyMask
+        type="text"
+        class="custom-input"
+        [options]="formattedOptions"
+        [placeholder]="i.placeholder"
+      />
+    </div>
+
+    <div *ngIf="i.type == 'input'" class="form-inline">
+      <h3 *ngIf="i.prefix">{{ i.prefix }}</h3>
+      <input
+        *ngIf="i.subType == 'number'"
+        type="number"
+        class="custom-input"
+        oninput="this.value = this.value.replace(/[^0-9]/g, '');"
+        [placeholder]="i.placeholder"
+      />
+
+      <input
+        *ngIf="i.subType != 'number'"
+        type="{{ i.subType }}"
+        class="custom-input"
+        [placeholder]="i.placeholder"
+      />
+    </div>
+
+    <div *ngIf="i.type == 'checkbox-list'" class="row">
+      <div class="col" *ngFor="let cl of i.checkboxList">
+        <div *ngFor="let c of cl" class="form-inline">
+          <input type="checkbox" id="{{c.key}}" />
+          <label for="{{c.key}}">{{c.title}}</label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

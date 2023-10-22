@@ -57,4 +57,6 @@ body {
     background: var(--background-primary);
     border-bottom: 2px solid var(--border-muted);
     padding-bottom: 4px;
+    margin-left: 2px;
+    padding-left: 2px;
 }

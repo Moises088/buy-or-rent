@@ -1,0 +1,84 @@
+.container-input {
+    border: 1px solid var(--background-secondary);
+    border-radius: 10px;
+    padding: 20px;
+    padding-top: 25px;
+    position: relative;
+    margin-right: 1%;
+    margin-top: 30px;
+    height: 100%;
+}
+
+.position {
+    position: absolute;
+    top: -14px;
+    left: 10px;
+    background: var(--btn-gray-linear);
+    width: 30px;
+    height: 30px;
+    border-radius: 20px;
+    border: 1px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-primary);
+}
+
+.container-input h3 {
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 16px;
+}
+
+.container-input label {
+    margin-left: 5px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    display: block;
+}
+
+.form-container {
+    margin-top: 20px;
+    color: var(--text-primary);
+}
+
+.form-inline {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.form-inline .custom-input {
+    font-size: 23px;
+    color: var(--text-secondary) !important;
+    font-weight: 600;
+}
+
+.form-inline h3 {
+    margin: 0;
+    font-size: 23px;
+    margin-top: -6px;
+    width: 48px;
+    text-align: center;
+}
+
+.label-input {
+    margin-left: 2px !important;
+}
+
+.row {
+    display: flex;
+    align-items: flex-start;
+}
+
+.col {
+    margin-right: 15px;
+    min-width: 100px;
+}
+
+.col label {
+    margin-top: 4px;
+    font-weight: 600;
+    color: var(--text-secondary)
+}
