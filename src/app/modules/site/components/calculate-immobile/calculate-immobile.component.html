@@ -11,5 +11,8 @@
 </div>
 
 <div class="container-btn">
-  <button class="btn btn-blue-linear btn-send">Enviar</button>
+  <div class="error">
+    <span *ngFor="let erro of erros">**{{erro}}</span>
+  </div>
+  <button (click)="sendForm()" class="btn btn-blue-linear btn-send">Calcular</button>
 </div>

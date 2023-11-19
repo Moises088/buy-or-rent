@@ -13,6 +13,7 @@ export const LANGUAGUES = {
                 smartphone: 'Smartphone'
             },
             optional: "optional",
+            required: "It is required to fill",
             immobile: {
                 location: "Location",
                 country: "Country",
@@ -53,6 +54,7 @@ export const LANGUAGUES = {
                 smartphone: 'Smartphone'
             },
             optional: "opcional",
+            required: "É obrigatório preencher",
             immobile: {
                 location: "Localidade",
                 country: "País",

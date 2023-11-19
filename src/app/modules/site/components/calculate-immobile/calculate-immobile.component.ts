@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { BrazilStates, EUAStates } from 'src/app/shared/constants/states.constant';
-import { CalculateFormCardDto } from 'src/app/shared/interfaces/calculate.interface';
+import { CalculateForm, CalculateFormCardDto } from 'src/app/shared/interfaces/calculate.interface';
 import { TranslationService } from 'src/app/shared/services/translation.service';
+import { ImmobileService } from '../../services/immobile.service';
+import { TransformStringMoney } from 'src/app/shared/constants/convert.constant';
 
 @Component({
   selector: 'app-calculate-immobile',
@@ -22,8 +24,11 @@ export class CalculateImmobileComponent implements OnInit {
     prefix: "R$"
   }
 
+  public erros: Array<string> = [];
+
   constructor(
-    private readonly translationService: TranslationService
+    private readonly translationService: TranslationService,
+    private readonly immobileService: ImmobileService
   ) { }
 
   ngOnInit() {
@@ -74,6 +79,38 @@ export class CalculateImmobileComponent implements OnInit {
     }
 
     this.forms = [...forms]
+  }
+
+  public sendForm() {
+    const form: CalculateForm = this.form as any;
+    form.entry = TransformStringMoney(String(form.entry));
+    form.installments = TransformStringMoney(String(form.installments));
+    form.rentValue = TransformStringMoney(String(form.rentValue));
+    if (form.rentYears) form.rentYears = parseInt(String(form.rentYears));
+    if (form.rentYears) form.numberInstallments = parseInt(String(form.numberInstallments));
+    if (form.transferRate) form.transferRate = TransformStringMoney(String(form.transferRate));
+    if (form.brokerageFees) form.brokerageFees = TransformStringMoney(String(form.brokerageFees));
+    if (form.itbi) form.itbi = TransformStringMoney(String(form.itbi));
+
+    const erros = this.validForm(form)
+    if (erros?.length) return;
+
+    this.immobileService.calculateImmobile(form)
+  }
+
+  private validForm(form: CalculateForm) {
+    const erros = [];
+
+    if (!form.country) erros.push(`${this.translations?.main?.required} (${this.translations?.main?.immobile?.country})`)
+    if (!form.state) erros.push(`${this.translations?.main?.required} (${this.translations?.main?.immobile?.state})`)
+    if (!form.entry) erros.push(`${this.translations?.main?.required} (${this.translations?.main?.immobile?.entry})`)
+    if (!form.installments) erros.push(`${this.translations?.main?.required} (${this.translations?.main?.immobile?.installments})`)
+    if (!form.numberInstallments) erros.push(`${this.translations?.main?.required} (${this.translations?.main?.immobile?.numberInstallments})`)
+    if (!form.rentValue) erros.push(`${this.translations?.main?.required} (${this.translations?.main?.immobile?.rentValue})`)
+    if (!form.rentYears) erros.push(`${this.translations?.main?.required} (${this.translations?.main?.immobile?.rentYears})`)
+
+    this.erros = erros;
+    return erros;
   }
 
   private setInputs() {
@@ -127,20 +164,20 @@ export class CalculateImmobileComponent implements OnInit {
         title: this.translations?.main?.immobile?.rental,
         inputs: [
           {
-            key: 'entry',
+            key: 'rentValue',
             label: this.translations?.main?.immobile?.rentValue,
             type: "input-money",
             prefix: "R$"
           },
           {
-            key: 'numberInstallments',
+            key: 'rentYears',
             label: this.translations?.main?.immobile?.rentYears,
             type: "input",
             subType: "number",
             placeholder: "5"
           },
           {
-            key: 'numberInstallments',
+            key: 'rentInclude',
             label: this.translations?.main?.immobile?.rentInclude,
             type: "checkbox-list",
             checkboxList: [

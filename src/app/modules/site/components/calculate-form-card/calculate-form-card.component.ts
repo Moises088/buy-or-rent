@@ -8,12 +8,12 @@ import { CalculateFormCardDto } from 'src/app/shared/interfaces/calculate.interf
 })
 export class CalculateFormCardComponent implements OnInit {
   @Input() form: Record<string, string> = {}
-
   @Input() title: string = '';
   @Input() position!: number;
   @Input() inputs: CalculateFormCardDto[] = [];
-
   @Output() valueChange = new EventEmitter<{ key: string, value: string }>();
+
+  moneyForm: Record<string, string> = {}
 
   public formattedOptions = {
     prefix: '',
@@ -26,6 +26,7 @@ export class CalculateFormCardComponent implements OnInit {
     for (const input of this.inputs) {
       if (input.type == 'input-money') {
         if (!this.form[input.key]) this.form[input.key] = "0";
+        if (!this.moneyForm[input.key]) this.moneyForm[input.key] = "0";
       }
     }
   }

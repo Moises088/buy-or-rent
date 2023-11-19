@@ -1,12 +1,7 @@
 <div class="calculate-types">
   <div class="calculate-type" (click)="selectType.emit('house')">
-    <small>
-      <a href="https://www.flaticon.com/free-icons/house" title="home icons">
-        Vectors Market - Flaticon
-      </a>
-    </small>
     <div class="calculate-image">
-      <img src="assets/icons/house.png" height="90px" />
+      <img src="assets/icons/house.png" height="140px" />
     </div>
 
     <button [ngClass]="{ 'btn-blue-linear': type === 'house' }" class="btn btn-gray-linear">
@@ -15,13 +10,8 @@
   </div>
 
   <div class="calculate-type" (click)="selectType.emit('transportation')">
-    <small>
-      <a href="https://www.flaticon.com/free-icons/car" title="car icons">
-        Konkapp - Flaticon
-      </a>
-    </small>
-    <div class="calculate-image" style="padding-top: 8px">
-      <img src="assets/icons/car.png" height="100px" />
+    <div class="calculate-image" style="padding-top: 25px">
+      <img src="assets/icons/car.png" height="70px" />
     </div>
 
     <button [ngClass]="{ 'btn-blue-linear': type === 'transportation' }" class="btn btn-gray-linear">
@@ -30,16 +20,8 @@
   </div>
 
   <div class="calculate-type" (click)="selectType.emit('smartphone')">
-    <small>
-      <a
-        href="https://www.flaticon.com/free-icons/smartphone"
-        title="scooter icons"
-      >
-        Smartphone - Flaticon
-      </a>
-    </small>
-    <div class="calculate-image" style="padding-top: 18px">
-      <img src="assets/icons/mobile-app.png" height="70px" />
+    <div class="calculate-image">
+      <img src="assets/icons/mobile-app.png" height="100px" />
     </div>
 
     <button [ngClass]="{ 'btn-blue-linear': type === 'smartphone' }" class="btn btn-gray-linear">
